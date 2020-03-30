@@ -39,8 +39,7 @@ class Classifier extends React.PureComponent {
         } else if (this.props.error !== null) {
             return (
                 <Fragment>
-                    <h3>Erreur pendant le chargement</h3>
-                    <p>{this.props.error}</p>
+                    <h3>Erreur pendant le chargement des models</h3>
                 </Fragment>
             );
         } else {

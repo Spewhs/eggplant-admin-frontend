@@ -24,9 +24,7 @@ const ClassifierList = ({ classifiers, activeClassifier, deleteClassifier }) => 
                 <Button 
                     variant="outline-info"
                     disabled={classifier.activeClassifier}
-                    onClick={() => {
-                        activeClassifier({id: classifier.id});
-                    }}>
+                    onClick={() => activeClassifier({id: classifier.id})}>
                         Activer
                 </Button>
             </td>
@@ -34,9 +32,7 @@ const ClassifierList = ({ classifiers, activeClassifier, deleteClassifier }) => 
                     <Button 
                         variant="outline-info"
                         disabled={classifier.activeClassifier}
-                        onClick={() => {
-                            deleteClassifier({id: classifier.id})
-                        }}>
+                        onClick={() => deleteClassifier({id: classifier.id})}>
                             Effacer
                     </Button>
                 </td>

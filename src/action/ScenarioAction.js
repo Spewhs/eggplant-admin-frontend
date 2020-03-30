@@ -15,3 +15,5 @@ export function getScenarioById({ id }) {
         payload: model.getById({ id })
     }
 }
+
+//TODO faire l'action de MAJ
