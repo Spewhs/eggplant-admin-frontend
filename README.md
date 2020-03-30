@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Run with docker
+
+docker build -t eggplant-front --build-arg REACT_APP_API_BASE_URL=aLinkToTheBackend .
+
+docker run -it -p 9090:80 eggplant-front
+
+
 ## Available Scripts
 
 In the project directory, you can run:
