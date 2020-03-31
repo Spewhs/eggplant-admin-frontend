@@ -47,16 +47,13 @@ const UpdateScenario = props => {
             {localScenario.usedInDataset ? "Oui" : "Non"}
           </Button>
         </p>
-
-        <hr />
+        
         <h2>Etape du BDD en échec</h2>
         <p>{localScenario.failStepKeyWord}</p>
 
-        <hr />
         <h2>Date de l'ajout dans le dataset</h2>
         <p>{new Date(localScenario.createdAt).toLocaleDateString()}</p>
 
-        <hr />
         <h2>Type d'erreur</h2>
         <Dropdown>
           <Dropdown.Toggle>
@@ -75,7 +72,6 @@ const UpdateScenario = props => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <hr />
         <h2>Piste de correction</h2>
         <Dropdown>
           <Dropdown.Toggle>
@@ -94,7 +90,6 @@ const UpdateScenario = props => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <hr />
         <h2>Trace</h2>
         <p>{localScenario.trace}</p>
 
