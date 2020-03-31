@@ -7,3 +7,7 @@ export function getAllByPage({page = 0}) {
 export function getById({ id }) {
     return scenarioApi.getById({ id });
 }
+
+export function updateScenario({ scenario }) {
+    return scenarioApi.updateScenario({ scenario });
+}

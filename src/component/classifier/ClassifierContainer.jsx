@@ -4,9 +4,7 @@ import * as actions from '../../action'
 import ClassifierList from './ClassifierList';
 import Spinner from 'react-bootstrap/Spinner';
 import PropTypes from 'prop-types';
-import Pagination from 'react-bootstrap/Pagination'
-import PageItem from 'react-bootstrap/PageItem'
-import Button from 'react-bootstrap/Button';
+import Pagination from '../ui/Pagination';
 
 class Classifier extends React.PureComponent {
     constructor(props) {
@@ -17,12 +15,12 @@ class Classifier extends React.PureComponent {
         }
         this.updatePageNumber.bind();
         this.showClassifierTab.bind();
-        this.showPagination.bind();
     } 
 
-    updatePageNumber(pageNumber) {
-        this.setState({pageNumber})
-        this.props.getClassifierPage({page: pageNumber});
+    updatePageNumber = pageNumber => {
+        const page = Math.max(0, pageNumber - 1);
+        this.props.getClassifierPage({ page });
+        this.setState({pageNumber: page})
     }
 
     componentDidMount() {
@@ -47,30 +45,12 @@ class Classifier extends React.PureComponent {
         }
     }
 
-    showPagination() {
-        let items = [];
-        for (let number = 0; number < 5; number++) {
-            items.push(
-                <PageItem key={number} active={number === (this.state.pageNumber)}>
-                    <Button size="lg" onClick={() => {this.updatePageNumber(number)}}>{number + 1}</Button>
-                </PageItem>,
-            );
-        }
-        return (
-            <Pagination className="fixed-bottom-center">
-                {items}
-            </Pagination>
-        );
-    }
-
     render() {
         return (
             <Fragment>
                 <h1 >Modeles</h1>
                 <hr />
-                {
-                    this.showPagination()
-                }
+                <Pagination totalRecords={1000} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber} />
                 <hr />
                 {
                     this.showClassifierTab()

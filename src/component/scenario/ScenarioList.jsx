@@ -1,8 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
-// import Badge from 'react-bootstrap/Badge';
-// import Button from 'react-bootstrap/Button';
 
 
 const ScenarioList = ({scenarios, onScenarioClick}) => {

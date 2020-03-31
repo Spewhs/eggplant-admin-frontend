@@ -72,6 +72,48 @@ export default function reducer(state = initialState, action) {
             }
         }
 
+        case actionType.UPDATE_SCENARIO: {
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                error: null,
+            }
+        }
+        case actionType.UPDATE_SCENARIO_PENDING: {
+            return {
+                ...state,
+                fetching: true,
+                fetched: false,
+                error: null,
+            }
+        }
+        case actionType.UPDATE_SCENARIO_FULFILLED: {
+            const newScenarios = [...state.scenarios]
+                .map(scenario => {
+                    if (scenario.id === action.payload.id) {
+                        scenario = action.payload;
+                    }
+                    return scenario;
+                })
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                error: null,
+                scenarios: newScenarios,
+                selectedScenario: action.payload,
+            }
+        }
+        case actionType.UPDATE_SCENARIO_REJECTED: {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+                error: action.payload,
+            }
+        }
+
         default:
             return state;
     }

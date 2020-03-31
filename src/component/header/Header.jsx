@@ -16,7 +16,6 @@ import Home from '../home/Home';
 import ScenarioListContainer from '../scenario/ScenarioListContainer';
 import Stats from '../stats/Stats';
 import ClassifierContainer from '../classifier/ClassifierContainer';
-import ScenarioContainer from'../scenario/ScenarioContainer';
 
 export default function Header() {
     return (
@@ -34,7 +33,6 @@ export default function Header() {
 
           <Switch>
             <Route exact path="/scenarii" component={ScenarioListContainer} />
-            <Route path="/scenarii/:id" component={ScenarioContainer} />
             <Route exact path="/model" component={ClassifierContainer} />
             <Route exact path="/stats" component={Stats} />
             <Route exact path="/" component={Home} />

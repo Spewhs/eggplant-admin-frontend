@@ -17,3 +17,10 @@ export function getScenarioById({ id }) {
 }
 
 //TODO faire l'action de MAJ
+
+export function updateScenario({ scenario }) {
+    return {
+        type: action.UPDATE_SCENARIO,
+        payload: model.updateScenario({ scenario })
+    }
+}

@@ -20,6 +20,7 @@ class ScenarioApi {
     }
 
     updateScenario({ scenario }) {
+        console.log(scenario);
         return this.client.patch({
             body: scenario
         });
