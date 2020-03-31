@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../action'
 import PropTypes from 'prop-types';
 import ScenarioList from './ScenarioList';
-import Spinner from 'react-bootstrap/Spinner';
+import { Spinner, Badge } from 'react-bootstrap';
 import UpdateScenario from './UpdateScenario';
 import CustomPagination from '../ui/Pagination';
+import ColoredLine from '../ui/ColoredLine';
 
 class ScenarioContainer extends React.PureComponent {
     constructor(props) {
@@ -43,8 +44,9 @@ class ScenarioContainer extends React.PureComponent {
                 return <h2>Pas de données sur cette page</h2>;
             }
             return (
-                <Fragment>
-                    <ScenarioList 
+                <React.Fragment>
+                    <ScenarioList
+                    className="current-page d-inline-block h-100 pl-4 text-secondary" 
                     scenarios={this.props.scenarios}
                     onScenarioClick={scenario => {
                         this.setState({
@@ -65,7 +67,7 @@ class ScenarioContainer extends React.PureComponent {
                         }}
                         handleOnHide={this.unSelectScenario}
                     />
-                </Fragment>
+                </React.Fragment>
             );
         } else if(this.props.error) {
             return <h2>Error</h2>;
@@ -76,21 +78,28 @@ class ScenarioContainer extends React.PureComponent {
 
     render() {
         return (
-            <Fragment>
-                <h1>Scenarii</h1>
-                <hr />
-                <CustomPagination totalRecords={1000} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber}/>
-                <hr />
-                {
-                    this.showScenarioList()
-                }
-            </Fragment>
+            <div className="container mb-5">
+                <div className="row pt-5 pb-2 justify-content-center">
+                    <h1 className="col-4">Dataset</h1>
+                </div>
+                <ColoredLine color="white"/>
+                <div className="row py-2 justify-content-between">
+                    <div className="col-2">
+                        <Badge  variant="primary">
+                            Total model <Badge variant="light">{this.props.numbersOfScenarios}</Badge>
+                        </Badge>
+                    </div>
+                    <CustomPagination className="col-6" totalRecords={this.props.numbersOfScenarios} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber}/>
+                </div>
+                { this.showScenarioList() }
+            </div>
         );
     }
 }
 
 ScenarioContainer.propTypes = {
     scenarios: PropTypes.array.isRequired,
+    numbersOfScenarios: PropTypes.number.isRequired,
     isFetching: PropTypes.bool.isRequired,
     fetched: PropTypes.bool.isRequired,
     error: PropTypes.object,
@@ -100,6 +109,7 @@ ScenarioContainer.propTypes = {
 const mapStateToProps = state => {
     return {
         scenarios: state.scenario.scenarios,
+        numbersOfScenarios: state.scenario.numbersOfScenarios,
         isFetching: state.scenario.fetching,
         fetched: state.scenario.fetched,
         error: state.scenario.error,

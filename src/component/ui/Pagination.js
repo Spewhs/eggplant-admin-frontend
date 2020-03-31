@@ -90,6 +90,7 @@ class Pagination extends Component {
 
       return [1, ...pages, totalPages];
     }
+    return range(1, totalPages);
   }
 
   componentDidMount() {

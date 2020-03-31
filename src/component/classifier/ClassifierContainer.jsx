@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../action'
 import ClassifierList from './ClassifierList';
-import Spinner from 'react-bootstrap/Spinner';
+import { Spinner, Badge } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Pagination from '../ui/Pagination';
+import Coloredline from '../ui/ColoredLine';
 
 class Classifier extends React.PureComponent {
     constructor(props) {
@@ -47,21 +48,28 @@ class Classifier extends React.PureComponent {
 
     render() {
         return (
-            <Fragment>
-                <h1 >Modeles</h1>
-                <hr />
-                <Pagination totalRecords={1000} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber} />
-                <hr />
-                {
-                    this.showClassifierTab()
-                }
-            </Fragment>
+            <div className="container mb-5">
+                <div className="row pt-5 pb-2 justify-content-center">
+                    <h1 className="col-4">Modeles</h1>
+                </div>
+                <Coloredline color="white"/>
+                <div className="row py-2 justify-content-between">
+                    <div className="col-2">
+                        <Badge  variant="primary">
+                            Total model <Badge variant="light">{this.props.numberOfClassifiers}</Badge>
+                        </Badge>
+                    </div>
+                    <Pagination className="col-6" totalRecords={this.props.numberOfClassifiers} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber} />
+                </div>
+                { this.showClassifierTab() }
+            </div>
         );
     }
 }
 
 Classifier.propTypes = {
     classifiers: PropTypes.array.isRequired,
+    numberOfClassifiers: PropTypes.number.isRequired,
     isFetching: PropTypes.bool.isRequired,
     fetched: PropTypes.bool.isRequired,
     error: PropTypes.object,
@@ -70,6 +78,7 @@ Classifier.propTypes = {
 const mapStateToProps = state => {
     return {
         classifiers: state.classifier.classifiers,
+        numberOfClassifiers: state.classifier.numberOfClassifiers,
         isFetching: state.classifier.fetching,
         fetched: state.classifier.fetched,
         error: state.classifier.error

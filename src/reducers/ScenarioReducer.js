@@ -2,6 +2,7 @@ import * as actionType from '../action/ScenarioActionType';
 
 const initialState = {
     scenarios: [],
+    numbersOfScenarios: 0,
     selectedScenario: {},
     fetching: false,
     fetched: false,
@@ -26,11 +27,13 @@ export default function reducer(state = initialState, action) {
             }
         }
         case actionType.GET_SCENARIO_FULFILLED: {
+            const { items, numberOfItems } = action.payload;
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
-                scenarios: action.payload
+                scenarios: items,
+                numbersOfScenarios: numberOfItems,
             }
         }
         case actionType.GET_SCENARIO_REJECTED: {

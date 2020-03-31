@@ -3,6 +3,7 @@ import * as actionType from '../action/ClassifierActionTypes';
 
 const initialState = {
     classifiers: [],
+    numberOfClassifiers: 0,
     fetching: false,
     fetched: false,
     error: null
@@ -25,11 +26,13 @@ export default function reducer( state = initialState, action) {
             }
         }
         case actionType.GET_CLASSIFIER_FULFILLED: {
+            const { items, numberOfItems } = action.payload;
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
-                classifiers: action.payload
+                classifiers: items,
+                numberOfClassifiers: numberOfItems,
             }
         }
         case actionType.GET_CLASSIFIER_REJECTED: {
