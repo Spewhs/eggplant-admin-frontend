@@ -64,7 +64,7 @@ Classifier.propTypes = {
     classifiers: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
     fetched: PropTypes.bool.isRequired,
-    error: PropTypes.string,
+    error: PropTypes.object,
 }
 
 const mapStateToProps = state => {

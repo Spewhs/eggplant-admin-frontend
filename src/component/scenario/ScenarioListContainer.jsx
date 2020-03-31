@@ -53,7 +53,7 @@ class ScenarioContainer extends React.PureComponent {
                             showModal: true,
                         });
                     }}
-                    />;
+                    />
                     <UpdateScenario 
                         scenario={this.state.selectedScenario}
                         config={this.props.config}
