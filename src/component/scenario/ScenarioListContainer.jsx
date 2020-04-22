@@ -27,6 +27,7 @@ class ScenarioContainer extends React.PureComponent {
     }
 
     componentDidMount() {
+        this.props.getConfig();
         this.updatePageNumber(this.state.pageNumber);
     }
 
