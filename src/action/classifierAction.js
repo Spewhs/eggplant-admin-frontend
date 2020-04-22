@@ -51,3 +51,10 @@ export function deleteClassifier({ id }) {
         payload: model.deleteClassifierById({ id })
     }
 }
+
+export function subtmitNewPrediction() {
+    return {
+        type: actions.SUBMIT_NEW_TRAINING_MODEL,
+        payload: model.makePrediction()
+    }
+}

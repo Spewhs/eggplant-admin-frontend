@@ -26,7 +26,7 @@ export default function Header() {
               <Nav className="mr-auto">
                 <Nav.Link href="/scenarii">Dataset</Nav.Link>
                 <Nav.Link href="/model">Model</Nav.Link>
-                <Nav.Link href="/stats">Perfomences</Nav.Link>
+                <Nav.Link href="/stats">performances</Nav.Link>
               </Nav>
             </Navbar>
           </Container>

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../action'
 import ClassifierList from './ClassifierList';
-import { Spinner, Badge } from 'react-bootstrap';
+import { Spinner, Badge, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Pagination from '../ui/Pagination';
 import Coloredline from '../ui/ColoredLine';
@@ -58,6 +58,9 @@ class Classifier extends React.PureComponent {
                         <Badge  variant="primary">
                             Total model <Badge variant="light">{this.props.numberOfClassifiers}</Badge>
                         </Badge>
+                    </div>
+                    <div>
+                        <Button onClick={() => actions.subtmitNewPrediction()}>Entrainer un nouveau modèle</Button>
                     </div>
                     <Pagination className="col-6" totalRecords={this.props.numberOfClassifiers} pageLimit={50} pageNeighbours={1} onPageChanged={this.updatePageNumber} />
                 </div>

@@ -142,6 +142,27 @@ export default function reducer( state = initialState, action) {
             }
         }
 
+        case actionType.SUBMIT_NEW_TRAINING_MODEL: {
+            return {
+                ...state,
+                fetching: true
+            }
+        }
+        case actionType.SUBMIT_NEW_TRAINING_MODEL_FULFILLED: {
+            return {
+                ...state,
+                fetching: false,
+                fetched: true,
+            }
+        }
+        case actionType.SUBMIT_NEW_TRAINING_MODEL_REJECTED: {
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        }
+
         default:
             return state;
 

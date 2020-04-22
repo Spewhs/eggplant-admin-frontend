@@ -27,3 +27,7 @@ export function updateClassifier({ payload }) {
 export function deleteClassifierById({ id }) {
     return classifierApi.deleteById({ id });
 }
+
+export function makePrediction() {
+    return classifierApi.makePrediction();
+}

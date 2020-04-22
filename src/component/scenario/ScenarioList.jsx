@@ -12,7 +12,7 @@ const ScenarioList = ({scenarios, onScenarioClick}) => {
             >
                 <td>{new Date(scenario.createdAt).toLocaleDateString()}</td>
                 <td>{scenario.trainingLabel.toLowerCase()}</td>
-                <td>{scenario.correctionAction}</td>
+                <td>{scenario.correctionAction.toLowerCase()}</td>
                 <td>{scenario.failStepKeyWord}</td>
                 <td>{scenario.usedInDataset ? "oui" : "non"}</td>
             </tr>

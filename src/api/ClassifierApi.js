@@ -49,6 +49,12 @@ class ClassifierApi {
         });
     }
 
+    makePrediction() {
+        return this.client.post({
+            path: "/train"
+        });
+    }
+
 }
 
 const classifiersApi = new ClassifierApi();
