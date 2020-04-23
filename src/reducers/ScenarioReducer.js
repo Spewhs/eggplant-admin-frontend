@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 fetching: true,
-                fetched:false,
+                fetched: false,
                 error: null
             }
         }

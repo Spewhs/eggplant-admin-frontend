@@ -16,7 +16,7 @@ export function makeAPredictionWithSpecifiqueClassifier({ scenarioId, classifier
     };
 }
 
-export function getPrediction({page, classifierId }) {
+export function getPrediction({ page }) {
     return {
         type: action.GET_PREDICTION,
         payload: model.getPrediction({ page })

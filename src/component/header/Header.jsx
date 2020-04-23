@@ -14,7 +14,7 @@ import Container from 'react-bootstrap/Container';
 
 import Home from '../home/Home';
 import ScenarioListContainer from '../scenario/ScenarioListContainer';
-import Stats from '../stats/Stats';
+import StatsContainer from '../stats/StatsContainer';
 import ClassifierContainer from '../classifier/ClassifierContainer';
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
           <Switch>
             <Route exact path="/scenarii" component={ScenarioListContainer} />
             <Route exact path="/model" component={ClassifierContainer} />
-            <Route exact path="/stats" component={Stats} />
+            <Route exact path="/stats" component={StatsContainer} />
             <Route exact path="/" component={Home} />
           </Switch>
       </Router>

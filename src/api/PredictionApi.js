@@ -56,5 +56,5 @@ class PredictionApi {
     }
 }
 
-const predictionApi = PredictionApi();
+const predictionApi = new PredictionApi();
 export default predictionApi;
