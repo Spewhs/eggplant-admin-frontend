@@ -12,7 +12,7 @@ const makeDropDownItem = (configFromWords, onClick) => {
 };
 
 const UpdateScenario = props => {
-  const { scenario, config, show, onUpdate, handleOnHide } = props;
+  const { scenario, config, show, onUpdate, handleOnHide, onMakeAPrediction } = props;
 
   const [localScenario, setLocalScenario] = useState({});
   const [localShow, setLocalShow] = useState(show);
@@ -47,6 +47,13 @@ const UpdateScenario = props => {
             {localScenario.usedInDataset ? "Oui" : "Non"}
           </Button>
         </p>
+
+        <h2>Prédiction</h2>
+        <p>Faire une prédiction manuelle sur ce scénario avec le modèle séléctionné par défault</p>
+        <Button
+          variant="success"
+          onClick={() => onMakeAPrediction()}
+        >Prédire</Button>
         
         <h2>Etape du BDD en échec</h2>
         <p>{localScenario.failStepKeyWord}</p>

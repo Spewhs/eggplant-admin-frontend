@@ -39,6 +39,11 @@ class ScenarioContainer extends React.PureComponent {
         });
     }
 
+    makeAPrediction = ({ scenarioId }) => {
+        actions.makeAPrediction({ scenarioId })
+    }
+
+
     showScenarioList() {
         if (this.props.fetched) {
             if (!this.props.scenarios.length > 0){
@@ -67,6 +72,7 @@ class ScenarioContainer extends React.PureComponent {
                             this.forceUpdate();
                         }}
                         handleOnHide={this.unSelectScenario}
+                        onMakeAPrediction={() => this.makeAPrediction({ scenarioId: this.state.selectedScenario.id })}
                     />
                 </React.Fragment>
             );
