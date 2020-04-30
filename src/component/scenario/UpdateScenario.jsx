@@ -47,13 +47,6 @@ const UpdateScenario = props => {
             {localScenario.usedInDataset ? "Oui" : "Non"}
           </Button>
         </p>
-
-        <h2>Prédiction</h2>
-        <p>Faire une prédiction manuelle sur ce scénario avec le modèle séléctionné par défault</p>
-        <Button
-          variant="success"
-          onClick={() => onMakeAPrediction()}
-        >Prédire</Button>
         
         <h2>Etape du BDD en échec</h2>
         <p>{localScenario.failStepKeyWord}</p>
@@ -99,6 +92,12 @@ const UpdateScenario = props => {
 
         <h2>Trace</h2>
         <p>{localScenario.trace}</p>
+
+        <h2>Prédiction</h2>
+        <p>Faire une prédiction manuelle sur ce scénario avec le modèle séléctionné par défault</p>
+        <Button
+          onClick={() => onMakeAPrediction()}
+        >Prédire</Button>
 
       </Modal.Body>
       <Modal.Footer>
